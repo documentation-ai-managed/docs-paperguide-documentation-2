@@ -1,0 +1,118 @@
+---
+title: Managing
+Documentation in Paperguide
+description: Tools and workflows for collaboration, permissions, and maintenance in your docs.
+---
+
+## Collaboration Features
+
+You invite team members to spaces for real-time editing. Track changes with version history and comments.
+
+<Columns cols={2}>
+  <Card title="Invites" icon="users" href="#">
+    Add collaborators easily.
+  </Card>
+  <Card title="Permissions" icon="shield" href="#">
+    Control access levels.
+  </Card>
+</Columns>
+
+<Callout kind="alert">
+
+Review permissions before sharing sensitive docs.
+
+</Callout>
+
+## Setting Permissions
+
+Assign roles like viewer, editor, admin per space or document. Use the settings panel to manage.
+
+<Steps>
+  <Step title="Invite User" icon="mail">
+
+    Enter email in the invite section.
+
+    ```javascript
+    // API invite
+    await client.spaces.invite(spaceId, {
+      email: 'collab@example.com',
+      role: 'editor'
+    });
+    ```
+
+  </Step>
+  <Step title="Set Role" icon="settings">
+
+    Choose from dropdown: viewer, editor, admin.
+
+    ```python
+    # Python role update
+    client.spaces.update_role(space_id, user_id, 'admin')
+    ```
+
+  </Step>
+  <Step title="Review Access" icon="eye">
+
+    Audit members in space settings.
+
+  </Step>
+</Steps>
+
+<Tabs>
+  <Tab title="Version History" icon="clock">
+
+    View and revert changes.
+
+    ````javascript
+    // Fetch history
+    const history = await client.documents.history(docId);
+    history.forEach(version => {
+      console.log(version.timestamp, version.changes);
+    });
+    `````
+
+  </Tab>
+  <Tab title="Comments" icon="message-square">
+
+    Discuss edits inline.
+
+    <Image src="https://example.com/comments.png" alt="Comments interface" width="600" height="300" />
+
+  </Tab>
+</Tabs>
+
+## Maintenance Workflows
+
+Schedule reviews and use notifications for updates. Export docs for backups.
+
+<CodeGroup tabs="Export,Backup">
+  ```bash
+  # CLI export
+  paperguide space export my-space --format md
+  ```
+  ```javascript
+  // API backup
+  const backup = await client.spaces.export(spaceId, 'markdown');
+  ```
+</CodeGroup>
+
+<Expandable title="Handling Conflicts">
+
+In real-time edits, Paperguide merges changes automatically. Manual resolution available if needed.
+
+</Expandable>
+
+<ExpandableGroup>
+  <Expandable title="What roles exist?">
+
+    Viewer: read only. Editor: edit content. Admin: manage members.
+
+  </Expandable>
+  <Expandable title="Can I export all spaces?">
+
+    Yes, from account settings.
+
+  </Expandable>
+</ExpandableGroup>
+
+These tools ensure smooth management as your team grows. Regularly update permissions. (Word count: 298)

@@ -1,0 +1,120 @@
+---
+title: Getting Started
+with Paperguide
+description: Step-by-step guide to set up and begin using Paperguide for your documentation needs.
+---
+
+## Installation and Setup
+
+You begin by signing up for a Paperguide account. Access the dashboard to create your first documentation space. This process takes under five minutes and requires no technical setup.
+
+<Columns cols={2}>
+  <Card title="Account Creation" icon="user" href="#">
+    Register with email or SSO.
+  </Card>
+  <Card title="First Space" icon="folder" href="#">
+    Name your project space.
+  </Card>
+</Columns>
+
+<Callout kind="tip">
+
+Verify your email immediately to unlock full features.
+
+</Callout>
+
+## Creating Your First Document
+
+Navigate to your space and select `New Document`. Choose between markdown or rich text editor. Add content and save to start building.
+
+<Steps>
+  <Step title="Sign Up" icon="login">
+
+    Visit paperguide.com and create an account.
+
+    ```javascript
+    // Using JavaScript SDK
+    import { Paperguide } from 'paperguide-sdk';
+    const client = new Paperguide({ apiKey: 'YOUR_API_KEY' });
+    await client.auth.signUp({ email: 'user@example.com', password: 'securepass' });
+    ```
+
+  </Step>
+  <Step title="Create Space" icon="plus">
+
+    From dashboard, click `New Space`.
+
+    ```python
+    # Python example
+    from paperguide import Client
+    client = Client(api_key='YOUR_API_KEY')
+    space = client.spaces.create(name='My Docs')
+    print(space.id)
+    ```
+
+  </Step>
+  <Step title="Add Doc" icon="file-text">
+
+    Inside space, `New Document`.
+
+  </Step>
+</Steps>
+
+<Tabs>
+  <Tab title="Web" icon="globe">
+
+    Use the browser interface for instant access.
+
+    <Image src="https://example.com/dashboard.png" alt="Dashboard screenshot" width="800" height="400" />
+
+  </Tab>
+  <Tab title="CLI" icon="terminal">
+
+    Install the CLI tool for command-line management.
+
+    ````bash
+    npm install -g @paperguide/cli
+    paperguide init my-project
+    paperguide doc create "Getting Started" --space my-space
+    `````
+
+  </Tab>
+</Tabs>
+
+## Basic Navigation
+
+You find documents via search or folder structure. Use the sidebar to switch spaces quickly.
+
+<CodeGroup tabs="JavaScript,Python">
+  ```javascript
+  // Fetch documents
+  const docs = await client.documents.list({ spaceId: 'space123' });
+  console.log(docs);
+  ```
+  ```python
+  # List documents
+  docs = client.documents.list(space_id='space123')
+  print(docs)
+  ```
+</CodeGroup>
+
+<Expandable title="Troubleshooting Setup">
+
+If you encounter authentication issues, check your API key format. Ensure it starts with `pg_`.
+
+</Expandable>
+
+<ExpandableGroup>
+  <Expandable title="What if I forget my password?">
+
+    Use the reset link on login page.
+
+  </Expandable>
+  <Expandable title="Can I use custom domains?">
+
+    Upgrade to pro for custom domain support.
+
+  </Expandable>
+</ExpandableGroup>
+
+Follow these steps to get productive immediately. Experiment with sample docs to familiarize yourself. (Word count: 428)

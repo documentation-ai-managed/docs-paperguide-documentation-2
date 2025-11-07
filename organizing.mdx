@@ -1,0 +1,126 @@
+---
+title: Organizing
+Your Documentation
+
+description: Best practices for structuring and categorizing content in Paperguide spaces.
+---
+
+## Structuring Spaces
+
+You organize documentation by creating dedicated spaces for projects. Each space contains folders and documents. This keeps related content together and searchable.
+
+<Columns cols={3}>
+  <Card title="Project Spaces" icon="folder" href="#">
+    One space per project.
+  </Card>
+  <Card title="Folders" icon="layers" href="#">
+    Nest documents logically.
+  </Card>
+  <Card title="Tags" icon="tag" href="#">
+    Label for quick filtering.
+  </Card>
+</Columns>
+
+<Callout kind="success">
+
+Consistent naming conventions improve discoverability.
+
+</Callout>
+
+## Using Folders and Tags
+
+Create folders within spaces to group docs. Apply tags like `api`, `user-guide` for cross-referencing.
+
+<Steps>
+  <Step title="Create Folder" icon="folder">
+
+    Right-click in space and select `New Folder`.
+
+    ```javascript
+    // API to create folder
+    const folder = await client.folders.create({
+      spaceId: 'space123',
+      name: 'API Docs',
+      parentId: null
+    });
+    ```
+
+  </Step>
+  <Step title="Add Tags" icon="tag">
+
+    Edit document properties and assign tags.
+
+    ```yaml
+    # Example tag structure
+    document:
+      id: doc456
+      tags:
+        - api
+        - v1.0
+    ```
+
+  </Step>
+  <Step title="Search by Tag" icon="search">
+
+    Use the search bar with `#tag` syntax.
+
+  </Step>
+</Steps>
+
+<Tabs>
+  <Tab title="Folder Hierarchy" icon="layers">
+
+    Build a tree structure for complex projects.
+
+    ```mermaid
+graph TD
+    A[Space] --> B[Folder: API]
+    A --> C[Folder: User Guide]
+    B --> D[Endpoint Docs]
+    B --> E[Auth Guide]
+    C --> F[Quick Start]
+    ```
+
+  </Tab>
+  <Tab title="Tag Management" icon="tag">
+
+    Manage tags globally in settings.
+
+    <Expandable title="Bulk Tagging">
+
+      Select multiple docs and apply tags at once.
+
+    </Expandable>
+
+  </Tab>
+</Tabs>
+
+## Best Practices
+
+Limit folder depth to three levels. Use tags for metadata like status (`draft`, `published`). Regularly audit organization to maintain clarity.
+
+<CodeGroup tabs="CLI,API">
+  ```bash
+  # CLI to tag document
+  paperguide doc tag doc456 --tags "api,v1.0"
+  ```
+  ```javascript
+  // API tagging
+  await client.documents.update(docId, { tags: ['api', 'v1.0'] });
+  ```
+</CodeGroup>
+
+<ExpandableGroup>
+  <Expandable title="How many spaces should I create?">
+
+    One per major project or team to avoid overload.
+
+  </Expandable>
+  <Expandable title="Can tags be hierarchical?">
+
+    Use prefixes like `api:auth` for pseudo-hierarchy.
+
+  </Expandable>
+</ExpandableGroup>
+
+Effective organization scales with your documentation growth. Implement these strategies from the start. (Word count: 356)

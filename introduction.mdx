@@ -1,0 +1,107 @@
+---
+title: Introduction
+to Paperguide Documentation
+description: Overview of Paperguide and its core capabilities for managing project documentation.
+---
+
+## Overview
+
+Paperguide provides a centralized space to organize and manage your project documentation. You create, edit, and collaborate on docs within customizable spaces. Start by setting up your first space to streamline your workflow.
+
+<Columns cols={3}>
+  <Card title="Quick Setup" icon="rocket" href="/getting-started">
+    Set up your documentation space in minutes.
+  </Card>
+  <Card title="Organize Content" icon="folder" href="/organizing">
+    Structure your docs with folders and tags.
+  </Card>
+  <Card title="Collaborate" icon="users" href="/managing">
+    Invite team members and manage permissions.
+  </Card>
+</Columns>
+
+<Callout kind="info">
+
+Paperguide supports real-time editing and version history for all documents.
+
+</Callout>
+
+## Key Features
+
+You access a rich text editor with markdown support. Embed images, links, and code snippets easily. Use spaces to separate projects, like one for API docs and another for user guides.
+
+<Steps>
+  <Step title="Create Space" icon="plus">
+
+    Navigate to the dashboard and click `Create New Space`.
+
+    ```javascript
+    // Example API call to create space
+    const response = await fetch('/api/spaces', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: 'My Project' })
+    });
+    ```
+
+  </Step>
+  <Step title="Add Document" icon="file-text">
+
+    Inside your space, select `New Document`.
+
+    ```bash
+    curl -X POST https://api.paperguide.com/documents \
+      -H "Authorization: Bearer YOUR_TOKEN" \
+      -d '{"title": "Getting Started", "content": "# Hello World"}'
+    ```
+
+  </Step>
+  <Step title="Share Access" icon="share-2">
+
+    Go to settings and invite collaborators.
+
+  </Step>
+</Steps>
+
+<Tabs>
+  <Tab title="Markdown" icon="code">
+
+    Write docs using standard markdown syntax.
+
+    ````markdown
+    # Heading
+    - List item
+    `Inline code`
+    ```javascript
+    console.log('Example');
+    ```
+    ````
+
+  </Tab>
+  <Tab title="Rich Text" icon="edit">
+
+    Use the visual editor for non-technical users.
+
+    <Expandable title="Advanced Formatting">
+
+      Apply bold, italics, and hyperlinks directly in the editor.
+
+    </Expandable>
+
+  </Tab>
+</Tabs>
+
+<ExpandableGroup>
+  <Expandable title="What is a Space?" default-open={true}>
+
+    A space groups related documents. You organize multiple projects without overlap.
+
+  </Expandable>
+  <Expandable title="Version Control">
+
+    Track changes with automatic versioning. Revert to previous edits if needed.
+
+  </Expandable>
+</ExpandableGroup>
+
+This setup ensures your documentation remains current and accessible. Explore the features to build a comprehensive knowledge base. (Word count: 312)
